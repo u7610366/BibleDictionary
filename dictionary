@@ -5,20 +5,30 @@ from itertools import islice
 from pathlib import Path
 import sys
 
-#??
+#現在のフォルダのパスを取得
 script_dir = Path(__file__).resolve().parent
+#print(script_dir)
 
-print(script_dir)
+#Old_treatment_BSB.txtのパスを作成
+Oldtreatment_path = script_dir/'script'/'Old_treatment_BSB.txt'
+#print(file_path)
 
-file_path = script_dir/'script'/'Old_treatment_BSB.txt'
+#helpのパスを作成
+help_path = script_dir/'script'/'help'
 
-print(file_path)
+credit_line = 4
 
-start_line = 9
-end_line = 20
+start_line = 1 + credit_line
+end_line = 20 + credit_line
 
-with open(file_path, 'r', encoding='UTF-8') as f:
+with open(Oldtreatment_path, 'r', encoding='UTF-8') as f:
     sliced_lines = islice(f, start_line, end_line)
 
     for line in sliced_lines:
        print(line.strip())
+try:
+   help_content = help_path.read_text(encoding='UTF-8')
+
+   print(help_content)
+except:
+   print(f"エラー: ファイルが見つかりません -> {help_path}")
