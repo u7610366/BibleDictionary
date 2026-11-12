@@ -5,7 +5,14 @@ from itertools import islice
 from pathlib import Path
 import sys
 
-file_path = 'Old_treatment_BSB.txt'
+#??
+script_dir = Path(__file__).resolve().parent
+
+print(script_dir)
+
+file_path = script_dir/'script'/'Old_treatment_BSB.txt'
+
+print(file_path)
 
 start_line = 9
 end_line = 20
