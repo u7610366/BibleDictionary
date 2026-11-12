@@ -3,13 +3,14 @@
 # SPDX-License-Identifier: BSD-3-Clause
 import sys
 import islice
+import itertools
 
 file_path = 'Old_treatment_BSB.txt'
 
 start_line = 9
 end_line = 20
 
-with open(file_path, 'r', encording='UTF-8') as f:
+with open(file_path, 'r', encoding='UTF-8') as f:
      sliced_lines = islice(f, start_line, end_line)
 
     for line in sliced_lines:
