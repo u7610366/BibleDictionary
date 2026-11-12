@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2026 Kazuki Nakatomi
 # SPDX-License-Identifier: BSD-3-Clause
 from itertools import islice
+from pathlib import Path
 import sys
 
 file_path = 'Old_treatment_BSB.txt'
