@@ -15,5 +15,5 @@
 - © 2026 Kazuki Nakatomi
 
 ## クレジット及び謝辞
-- 元のデータベース構造とソースファイルは以下から引用されています[scrollmapper/bible_databases](https://github.com/scrollmapper/bible_databases)。
+- MITライセンスに従い、データベース構造とソースファイルは以下から引用されています[scrollmapper/bible_databases](https://github.com/scrollmapper/bible_databases)。
 - 照合資料は以下から含まれています[OpenBible.info Labs](https://www.openbible.info/labs/cross-references/)。
