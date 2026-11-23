@@ -3,73 +3,74 @@
 
 プロテスタント聖書全66巻を検索するプログラム
 
-##収録書籍
-### Genesis
-### Exodus
-### Leviticus
-### Numbers
-### Deuteronomy
-### Joshua
-### Judges
-### Ruth
-### I Samuel
-### II Samuel
-### I Kings
-### II Kings
-### I Chronicles
-### II Chronicles
-### Ezra
-### Nehemiah
-### Esther
-### Job
-### Psalms
-### Proverbs
-### Ecclesiastes
-### Song of Solomon
-### Isaiah
-### Jeremiah
-### Lamentations
-### Ezekiel
-### Daniel
-### Hosea
-### Joel
-### Amos
-### Obadiah
-### Jonah
-### Micah
-### Nahum
-### Habakkuk
-### Zephaniah
-### Haggai
-### Zechariah
-### Malachi
-### Matthew
-### Mark
-### Luke
-### John
-### Acts
-### Romans
-### I Corinthians
-### II Corinthians
-### Galatians
-### Ephesians
-### Philippians
-### Colossians
-### I Thessalonians
-### II Thessalonians
-### I Timothy
-### II Timothy
-### Titus
-### Philemon
-### Hebrews
-### James
-### I Peter
-### II Peter
-### I John
-### II John
-### III John
-### Jude
-### Revelation of John
+##収録書籍(全66巻)
+
+- Genesis
+- Exodus
+- Leviticus
+- Numbers
+- Deuteronomy
+- Joshua
+- Judges
+- Ruth
+- I Samuel
+- II Samuel
+- I Kings
+- II Kings
+- I Chronicles
+- II Chronicles
+- Ezra
+- Nehemiah
+- Esther
+- Job
+- Psalms
+- Proverbs
+- Ecclesiastes
+- Song of Solomon
+- Isaiah
+- Jeremiah
+- Lamentations
+- Ezekiel
+- Daniel
+- Hosea
+- Joel
+- Amos
+- Obadiah
+- Jonah
+- Micah
+- Nahum
+- Habakkuk
+- Zephaniah
+- Haggai
+- Zechariah
+- Malachi
+- Matthew
+- Mark
+- Luke
+- John
+- Acts
+- Romans
+- I Corinthians
+- II Corinthians
+- Galatians
+- Ephesians
+- Philippians
+- Colossians
+- I Thessalonians
+- II Thessalonians
+- I Timothy
+- II Timothy
+- Titus
+- Philemon
+- Hebrews
+- James
+- I Peter
+- II Peter
+- I John
+- II John
+- III John
+- Jude
+- Revelation of John
 
 ## 必要なソフトウェア
 - Python
