@@ -37,8 +37,8 @@ def extract_section(file_path, target_title):
 
     #例題エラー処理
     except FileNotFoundError:
-        print(f"エラー: スクリプトファイルが見つかりません -> {file_path}", file=sys.stderr)
-        return ""
+          print(f"エラー: スクリプトファイルが見つかりません -> {file_path}", file=sys.stderr)
+          sys.exit(1)
 
 def main():
     # スクリプトの位置を起点にしてテキストファイルのパスを構築
@@ -46,11 +46,18 @@ def main():
     file_path = script_dir / 'script' / 'Old_treatment_BSB.txt'
     help_path = script_dir/'script'/'help'
 
-    # 標準入力（sys.stdin）からパイプ経由の文字列を1行ずつ受け取る
+    #エラー用変数
+    has_input = False
+    matched_any = False
+
+    # 標準入力（s	ys.stdin）からパイプ経由の文字列を1行ずつ受け取る
     for line in sys.stdin:
         query = line.strip()
         if not query:
             continue
+
+        #正常に実行されたら変数に正常を渡す
+        has_input = True
 
         # テキスト抽出関数を実行
         result = extract_section(file_path, query)
@@ -59,6 +66,12 @@ def main():
             print(result.strip())
         else:
             print(f"警告: '{query}' に一致する文書が見つかりませんでした。", file=sys.stderr)
+　　　　　　sys.exit(1)
+
+　　# 空入力や空白のみの入力だった場合のエラー終了に処理
+    if not has_input or not matched_any:
+         print("エラー: 有効な検索語が入力されませんでした。", file=sys.stderr)
+         sys.exit(1)
 
 if __name__ == '__main__':
     main()
