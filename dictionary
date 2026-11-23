@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # SPDX-FileCopyrightText: 2026 Kazuki Nakatomi
 # SPDX-License-Identifier: BSD-3-Clause
+
 from itertools import islice
 from pathlib import Path
 import sys
@@ -13,22 +14,60 @@ script_dir = Path(__file__).resolve().parent
 Oldtreatment_path = script_dir/'script'/'Old_treatment_BSB.txt'
 #print(file_path)
 
-#helpのパスを作成
-help_path = script_dir/'script'/'help'
+def extract_section(file_path, target_title):
+    """
+    指定したタイトルから次の '###' が来るまでの文章を抽出する関数
+    """
+    extracted_lines = []
+    is_capturing = False
 
-credit_line = 4
+    # 入力に '###' が含まれていない場合は自動で付与する（例: "Genesis" -> "### Genesis"）
+    if not target_title.startswith('###'):
+        target_title = f"### {target_title}"
 
-start_line = 1 + credit_line
-end_line = 20 + credit_line
+    try:
+        with open(file_path, 'r', encoding='UTF-8') as f:
+            for line in f:
+                stripped = line.strip()
 
-with open(Oldtreatment_path, 'r', encoding='UTF-8') as f:
-    sliced_lines = islice(f, start_line, end_line)
+                # タイトルに一致したらキャプチャ開始
+                if stripped == target_title:
+                    is_capturing = True
+                    continue
 
-    for line in sliced_lines:
-       print(line.strip())
-try:
-   help_content = help_path.read_text(encoding='UTF-8')
+                # 次の別の "###" が来たら終了
+                if is_capturing and stripped.startswith('###'):
+                    break
 
-   print(help_content)
-except:
-   print(f"エラー: ファイルが見つかりません -> {help_path}")
+                # キャプチャ中なら行をリストに追加
+                if is_capturing:
+                    extracted_lines.append(line)
+
+        return ''.join(extracted_lines)
+
+    except FileNotFoundError:
+        print(f"エラー: ファイルが見つかりません -> {file_path}", file=sys.stderr)
+        return ""
+
+def main():
+    # スクリプトの位置を起点にしてテキストファイルのパスを構築
+    script_dir = Path(__file__).resolve().parent
+    file_path = script_dir / 'script' / 'Old_treatment_BSB.txt'
+    help_path = script_dir/'script'/'help'
+
+    # 標準入力（sys.stdin）からパイプ経由の文字列を1行ずつ受け取る
+    for line in sys.stdin:
+        query = line.strip()
+        if not query:
+            continue
+
+        # テキストを抽出
+        result = extract_section(file_path, query)
+
+        if result:
+            print(result.strip())
+        else:
+            print(f"警告: '{query}' に一致するセクションが見つかりませんでした。", file=sys.stderr)
+
+if __name__ == '__main__':
+    main()
