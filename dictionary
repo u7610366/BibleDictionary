@@ -6,20 +6,12 @@ from itertools import islice
 from pathlib import Path
 import sys
 
-#現在のフォルダのパスを取得
-script_dir = Path(__file__).resolve().parent
-#print(script_dir)
-
-#Old_treatment_BSB.txtのパスを作成
-Oldtreatment_path = script_dir/'script'/'Old_treatment_BSB.txt'
-#print(file_path)
-
 #指定したタイトルから次の '###' が来るまでの文章を抽出する関数
 def extract_section(file_path, target_title):
     extracted_lines = []
     is_capturing = False
 
-    # 入力に '###' が含まれていない場合は自動で付与する（例: "Genesis" -> "### Genesis"）
+    # 入力に'###'が含まれていない場合は自動で付与する
     if not target_title.startswith('###'):
         target_title = f"### {target_title}"
 
@@ -28,21 +20,22 @@ def extract_section(file_path, target_title):
             for line in f:
                 stripped = line.strip()
 
-                # タイトルに一致したらキャプチャ開始
+                # タイトルに一致したら抽出開始
                 if stripped == target_title:
                     is_capturing = True
                     continue
 
-                # 次の別の "###" が来たら終了
+                # 次の別の"###"が来たら終了
                 if is_capturing and stripped.startswith('###'):
                     break
 
-                # キャプチャ中なら行をリストに追加
+                # 抽出中なら行をリストに追加
                 if is_capturing:
                     extracted_lines.append(line)
 
         return ''.join(extracted_lines)
 
+    #例題エラー処理
     except FileNotFoundError:
         print(f"エラー: スクリプトファイルが見つかりません -> {file_path}", file=sys.stderr)
         return ""
