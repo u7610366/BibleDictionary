@@ -14,10 +14,8 @@ script_dir = Path(__file__).resolve().parent
 Oldtreatment_path = script_dir/'script'/'Old_treatment_BSB.txt'
 #print(file_path)
 
+#指定したタイトルから次の '###' が来るまでの文章を抽出する関数
 def extract_section(file_path, target_title):
-    """
-    指定したタイトルから次の '###' が来るまでの文章を抽出する関数
-    """
     extracted_lines = []
     is_capturing = False
 
@@ -46,7 +44,7 @@ def extract_section(file_path, target_title):
         return ''.join(extracted_lines)
 
     except FileNotFoundError:
-        print(f"エラー: ファイルが見つかりません -> {file_path}", file=sys.stderr)
+        print(f"エラー: スクリプトファイルが見つかりません -> {file_path}", file=sys.stderr)
         return ""
 
 def main():
@@ -61,13 +59,13 @@ def main():
         if not query:
             continue
 
-        # テキストを抽出
+        # テキスト抽出関数を実行
         result = extract_section(file_path, query)
 
         if result:
             print(result.strip())
         else:
-            print(f"警告: '{query}' に一致するセクションが見つかりませんでした。", file=sys.stderr)
+            print(f"警告: '{query}' に一致する文書が見つかりませんでした。", file=sys.stderr)
 
 if __name__ == '__main__':
     main()
