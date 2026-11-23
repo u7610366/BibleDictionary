@@ -7,7 +7,7 @@
 
 書籍名を入力し、パイプすると全文が出力されます。
 
-- 例: echo "Genesis" | python3 dictionary
+- 例:$ echo "Genesis" | python3 dictionary
 
 ## 収録書籍(全66巻)
 
