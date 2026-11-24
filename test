@@ -1,0 +1,77 @@
+#!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 Kazuki Nakatomi
+# SPDX-License-Identifier: BSD-3-Clause
+
+from itertools import islice
+from pathlib import Path
+import sys
+
+#指定したタイトルから次の '###' が来るまでの文章を抽出する関数
+def extract_section(file_path, target_title):
+    extracted_lines = []
+    is_capturing = False
+
+    # 入力に'###'が含まれていない場合は自動で付与する
+    if not target_title.startswith('###'):
+        target_title = f"### {target_title}"
+
+    try:
+        with open(file_path, 'r', encoding='UTF-8') as f:
+            for line in f:
+                stripped = line.strip()
+
+                # タイトルに一致したら抽出開始
+                if stripped == target_title:
+                    is_capturing = True
+                    continue
+
+                # 次の別の"###"が来たら終了
+                if is_capturing and stripped.startswith('###'):
+                    break
+
+                # 抽出中なら行をリストに追加
+                if is_capturing:
+                    extracted_lines.append(line)
+
+        return ''.join(extracted_lines)
+
+    #例題エラー処理
+    except FileNotFoundError:
+          print(f"エラー: スクリプトファイルが見つかりません -> {file_path}", file=sys.stderr)
+          sys.exit(1)
+def main():
+    # スクリプトの位置を起点にしてテキストファイルのパスを構築
+    script_dir = Path(__file__).resolve().parent
+    file_path = script_dir / 'script' / 'Old_treatment_BSB.txt'
+    help_path = script_dir/'script'/'help'
+
+    #エラー用変数
+    has_input = False
+    matched_any = False
+
+    # 標準入力（sys.stdin）からパイプ経由の文字列を1行ずつ受け取る
+    for line in sys.stdin:
+        query = line.strip()
+        if not query:
+            continue
+
+        #正常に実行されたら変数に正常を渡す
+        has_input = True
+
+        # テキスト抽出関数を実行
+        result = extract_section(file_path, query)
+
+        if result:
+            print(result.strip())
+            matched_any = True
+        else:
+            print(f"警告: '{query}' に一致する文書が見つかりませんでした。", file=sys.stderr)
+            sys.exit(1)
+
+    # 空入力や空白のみの入力だった場合のエラー終了に処理
+    if not has_input or not matched_any:
+         print("エラー: 有効な検索語が入力されませんでした。", file=sys.stderr)
+         sys.exit(1)
+
+if __name__ == '__main__':
+    main()
