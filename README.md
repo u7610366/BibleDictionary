@@ -1,13 +1,16 @@
 # BibleDictionary
 ![test](https://github.com/u7610366/robosys2026/actions/workflows/test.yml/badge.svg)
 
-プロテスタント正典の聖書全66巻を検索するプログラム
+キリスト教プロテスタント正典の旧約及び新約聖書全66巻を検索するプログラム
 
 ## 使用方法
 
-書籍名を入力し、パイプすると全文が出力されます。
+書籍名をコマンドラインで入力すると、該当書籍の全文が出力されます。
 
-- 例:$ echo "Genesis" | python3 dictionary
+また、書籍名のパイプ入力にも対応しています。
+
+- 例:$ ./dictionary "III John"
+- 例:$ echo "III John" | ./dictionary
 
 ## 収録書籍(全66巻)
 
