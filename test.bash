@@ -14,6 +14,28 @@ out=$(echo "Genesis" | ./dictionary)
 [ "$?" = 0 ]      || ng "$LINENO"
 [ -n "${out}" ]   || ng "$LINENO"
 
+out=$(echo "Revelation of John" | ./dictionary)
+[ "$?" = 0 ]      || ng "$LINENO"
+[ -n "${out}" ]   || ng "$LINENO"
+
+### EMPTY / WHITESPACE INPUT ###
+out=$(echo "" | ./dictionary 2>/dev/null)
+[ "$?" = 1 ]      || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
+
+out=$(echo "   " | ./dictionary 2>/dev/null) #半角
+[ "$?" = 1 ]      || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
+
+out=$(echo "　　　" | ./dictionary 2>/dev/null) #全角
+[ "$?" = 1 ]      || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
+
+out=$(echo "		" | ./dictionary 2>/dev/null) #タブ
+[ "$?" = 1 ]      || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
+
+
 ### STRANGE / NOT FOUND INPUT ###
 out=$(echo "NonExistentTitle" | ./dictionary 2>/dev/null)
 [ "$?" = 1 ]      || ng "$LINENO"
