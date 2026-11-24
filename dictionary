@@ -50,8 +50,14 @@ def main():
     has_input = False
     matched_any = False
 
+    if len(sys.argv) > 1:
+        sources = sys.argv[1:]
+
+    else:
+        sources = sys.stdin
+
     # 標準入力（sys.stdin）からパイプ経由の文字列を1行ずつ受け取る
-    for line in sys.stdin:
+    for line in sources:
         query = line.strip()
         if not query:
             continue
@@ -73,6 +79,3 @@ def main():
     if not has_input or not matched_any:
          print("エラー: 有効な検索語が入力されませんでした。", file=sys.stderr)
          sys.exit(1)
-
-if __name__ == '__main__':
-    main()
