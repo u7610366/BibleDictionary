@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2026 Kazuki Nakatomi
 # SPDX-License-Identifier: BSD-3-Clause
 
+import re
 from itertools import islice
 from pathlib import Path
 import sys
@@ -11,7 +12,7 @@ def extract_section(file_path, target_title):
     extracted_lines = []
     is_capturing = False
 
-    # 入力に'###'が含まれていない場合は自動で付与する
+    #入力に'###'が含まれていない場合は自動で付与する
     if not target_title.startswith('###'):
         target_title = f"### {target_title}"
 
@@ -20,18 +21,19 @@ def extract_section(file_path, target_title):
             for line in f:
                 stripped = line.strip()
 
-                # タイトルに一致したら抽出開始
+                #タイトルに一致したら抽出開始
                 if stripped == target_title:
                     is_capturing = True
                     continue
 
-                # 次の別の"###"が来たら終了
+                #次の別の"###"が来たら終了
                 if is_capturing and stripped.startswith('###'):
                     break
 
-                # 抽出中なら行をリストに追加
+                #抽出中なら行をリストに追加
                 if is_capturing:
-                    extracted_lines.append(line)
+                    cleaned_line = re.sub(r'\[\d+:\d+\]\s*', '', line)
+                    extracted_lines.append(cleaned_line)
 
         return ''.join(extracted_lines)
 
@@ -41,7 +43,7 @@ def extract_section(file_path, target_title):
           sys.exit(1)
 
 def main():
-    # スクリプトの位置を起点にしてテキストファイルのパスを構築
+    #スクリプトの位置を起点にしてテキストファイルのパスを構築
     script_dir = Path(__file__).resolve().parent
     file_path = script_dir / 'script' / 'Old_treatment_BSB.txt'
     help_path = script_dir/'script'/'help'
@@ -56,7 +58,7 @@ def main():
     else:
         sources = sys.stdin
 
-    # 標準入力（sys.stdin）からパイプ経由の文字列を1行ずつ受け取る
+    #標準入力（sys.stdin）からパイプ経由の文字列を1行ずつ受け取る
     for line in sources:
         query = line.strip()
         if not query:
@@ -65,7 +67,7 @@ def main():
         #正常に実行されたら変数に正常を渡す
         has_input = True
 
-        # テキスト抽出関数を実行
+        #テキスト抽出関数を実行
         result = extract_section(file_path, query)
 
         if result:
@@ -75,7 +77,7 @@ def main():
             print(f"警告: '{query}' に一致する文書が見つかりませんでした。", file=sys.stderr)
             sys.exit(1)
 
-    # 空入力や空白のみの入力だった場合のエラー終了に処理
+    #空入力や空白のみの入力だった場合のエラー終了に処理
     if not has_input or not matched_any:
          print("エラー: 有効な検索語が入力されませんでした。", file=sys.stderr)
          sys.exit(1)
