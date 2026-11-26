@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # SPDX-FileCopyrightText: 2026 Kazuki Nakatomi
 # SPDX-License-Identifier: BSD-3-Clause
+#
+# Based on "ロボットシステム学 2025" by Ryuichi Ueda (Chiba Institute of Technology),
+# licensed under CC BY-SA 4.0. Modified by Kazuki Nakatomi in 2026.
 
 import re
 from itertools import islice
