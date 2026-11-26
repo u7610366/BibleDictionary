@@ -2,6 +2,9 @@
 # SPDX-FileCopyrightText: 2026 Kazuki Nakatomi
 # SPDX-License-Identifier: BSD-3-Clause
 
+# Based on "ロボットシステム学 2025" by Ryuichi Ueda (Chiba Institute of Technology),
+# licensed under CC BY-SA 4.0. Modified by Kazuki Nakatomi in 2026.
+
 ng () {
         echo "${1}行目のテスト失敗" >&2
         res=1
