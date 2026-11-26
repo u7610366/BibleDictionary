@@ -15,12 +15,13 @@ git clone https://github.com/u7610366/BibleDictionary
 
 また、書籍名のパイプ入力にも対応しています。
 
-- 例:'''bash
+- $ ```bash
 $ ./dictionary "III John"
-'''
-- 例:'''bash
-$ echo "III John" | ./dictionary
-'''
+```
+
+- 例:$ ```bash
+echo "III John" | ./dictionary
+```
 ## 収録書籍(全66巻)
 
 - Genesis
