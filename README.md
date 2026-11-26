@@ -112,8 +112,16 @@ $ echo "III John" | ./dictionary
 
 ## ライセンス
 - このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます。詳細は [LICENSE](LICENSE) ファイルを参照してください。
-- © 2026 Kazuki Nakatomi
+ - © 2026 Kazuki Nakatomi
+- 以下のファイル・データについては、それぞれの元ライセンスが適用されます。
+  - **CC BY-SA 4.0**: 上田隆一先生（千葉工業大学）の「ロボットシステム学 2025」からそのまま利用しているファイル（``）および改変して利用しているファイル（`.github/workflows/test.yml`, `test.bash`, `dictionary`）
+  - **MIT License**: [scrollmapper/bible_databases](https://github.com/scrollmapper/bible_databases) に由来するデータベース構造・ソースファイル
+  - **CC BY 4.0（または元サイトの適用ライセンス）**: [OpenBible.info Labs](https://www.openbible.info/labs/cross-references/) に由来する照合資料
 
 ## クレジット及び謝辞
-- MITライセンスに従い、データベース構造とソースファイルは以下から引用されています[scrollmapper/bible_databases](https://github.com/scrollmapper/bible_databases)。
-- 照合資料は以下から含まれています[OpenBible.info Labs](https://www.openbible.info/labs/cross-references/)。
+- データベース構造とソースファイルは、[scrollmapper/bible_databases](https://github.com/scrollmapper/bible_databases)（MIT License）から引用しています。
+- 照合資料は、[OpenBible.info Labs](https://www.openbible.info/labs/cross-references/) から引用しています。
+- 以下の点において、上田隆一先生（千葉工業大学）の [ロボットシステム学 2025](https://github.com/ryuichiueda/slides_marp/tree/master/robosys2025)（[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)）を利用・参考にしています。
+  - **そのまま利用**: `.github/workflows/test.yml`
+  - **改変して利用**: `test.bash`, `dictionary`
+  - **参考（実装の流用なし）**: プログラムの構成やテスト手法などの設計において参考にしています。
