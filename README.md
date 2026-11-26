@@ -1,5 +1,5 @@
 # BibleDictionary
-![test](https://github.com/u7610366/robosys2026/actions/workflows/test.yml/badge.svg)
+![test](https://github.com/u7610366/BibleDictionary/actions/workflows/test.yml/badge.svg)
 
 聖書検索プログラム
 
