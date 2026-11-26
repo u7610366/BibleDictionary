@@ -5,9 +5,13 @@
 
 ## インストール方法
 
+インストールするフォルダのディレクトリに移動し
+
 ```bash
 git clone https://github.com/u7610366/BibleDictionary
 ```
+
+を実行してダウンロードします。
 
 ## 使用方法
 
@@ -15,6 +19,7 @@ git clone https://github.com/u7610366/BibleDictionary
 
 また、書籍名のパイプ入力にも対応しています。
 
+- 例:
 ```bash
 ./dictionary "III John"
 ```
