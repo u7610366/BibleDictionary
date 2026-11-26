@@ -116,7 +116,7 @@ $ echo "III John" | ./dictionary
 - 以下のファイル・データについては、それぞれの元ライセンスが適用されます。
   - **CC BY-SA 4.0**: 上田隆一先生（千葉工業大学）の「ロボットシステム学 2025」からそのまま利用しているファイル（`.github/workflows/test.yml`）および改変して利用しているファイル（`test.bash`, `dictionary`）
   - **MIT License**: [scrollmapper/bible_databases](https://github.com/scrollmapper/bible_databases) に由来するデータベース構造・ソースファイル
-  - **CC BY 4.0（または元サイトの適用ライセンス）**: [OpenBible.info Labs](https://www.openbible.info/labs/cross-references/) に由来する照合資料
+  - **CC BY 4.0**: [OpenBible.info Labs](https://www.openbible.info/labs/cross-references/) に由来する照合資料
 
 ## クレジット及び謝辞
 - データベース構造とソースファイルは、[scrollmapper/bible_databases](https://github.com/scrollmapper/bible_databases)（MIT License）から引用しています。
