@@ -19,7 +19,7 @@ git clone https://github.com/u7610366/BibleDictionary
 $ ./dictionary "III John"
 ```
 
-- 例:$ ```bash
+- $ ```bash
 echo "III John" | ./dictionary
 ```
 ## 収録書籍(全66巻)
