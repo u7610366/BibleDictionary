@@ -16,7 +16,7 @@ git clone https://github.com/u7610366/BibleDictionary
 また、書籍名のパイプ入力にも対応しています。
 
 - $ ```bash
-$ ./dictionary "III John"
+./dictionary "III John"
 ```
 
 - $ ```bash
