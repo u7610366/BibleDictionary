@@ -3,15 +3,24 @@
 
 キリスト教プロテスタント正典の旧約及び新約聖書全66巻を検索するプログラム
 
+## インストール方法
+
+```bash
+git clone https://github.com/u7610366/BibleDictionary
+```
+
 ## 使用方法
 
 書籍名をコマンドラインで入力すると、該当書籍の全文が出力されます。
 
 また、書籍名のパイプ入力にも対応しています。
 
-- 例:$ ./dictionary "III John"
-- 例:$ echo "III John" | ./dictionary
-
+- 例:'''bash
+$ ./dictionary "III John"
+'''
+- 例:'''bash
+$ echo "III John" | ./dictionary
+'''
 ## 収録書籍(全66巻)
 
 - Genesis
