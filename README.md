@@ -116,12 +116,12 @@ $ echo "III John" | ./dictionary
 - 以下のファイル・データについては、それぞれの元ライセンスが適用されます。
   - **CC BY-SA 4.0**: 上田隆一先生（千葉工業大学）の「ロボットシステム学 2025」からそのまま利用しているファイル（`.github/workflows/test.yml`）および改変して利用しているファイル（`test.bash`, `dictionary`）
   - **MIT License**: [scrollmapper/bible_databases](https://github.com/scrollmapper/bible_databases) に由来するデータベース構造・ソースファイル
-  - **CC BY 4.0**: [OpenBible.info Labs](https://www.openbible.info/labs/cross-references/) に由来する照合資料
+  - **出典元条件に従う（パブリックドメイン由来中心・Topical Bible / Twitter Bible Search データ含む）**: [OpenBible.info Labs](https://www.openbible.info/labs/cross-references/) の照合データ
 
 ## クレジット及び謝辞
 - データベース構造とソースファイルは、[scrollmapper/bible_databases](https://github.com/scrollmapper/bible_databases)（MIT License）から引用しています。
 - 照合資料は、[OpenBible.info Labs](https://www.openbible.info/labs/cross-references/) から引用しています。
 - 以下の点において、上田隆一先生（千葉工業大学）の [ロボットシステム学 2025](https://github.com/ryuichiueda/slides_marp/tree/master/robosys2025)（[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)）を利用・参考にしています。
-  - **そのまま利用**: `.github/workflows/test.yml`
-  - **改変して利用**: `test.bash`, `dictionary`
-  - **参考（実装の流用なし）**: プログラムの構成やテスト手法などの設計において参考にしています。
+  - そのまま利用: `.github/workflows/test.yml`
+  - 改変して利用: `test.bash`, `dictionary`
+  - 参考: プログラムの構成やテスト手法などの設計において参考にしています。
