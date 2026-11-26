@@ -112,7 +112,7 @@ $ echo "III John" | ./dictionary
 
 ## ライセンス
 - このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます。詳細は [LICENSE](LICENSE) ファイルを参照してください。
- - © 2026 Kazuki Nakatomi
+  - © 2026 Kazuki Nakatomi
 - 以下のファイル・データについては、それぞれの元ライセンスが適用されます。
   - **CC BY-SA 4.0**: 上田隆一先生（千葉工業大学）の「ロボットシステム学 2025」からそのまま利用しているファイル（`.github/workflows/test.yml`）および改変して利用しているファイル（`test.bash`, `dictionary`）
   - **MIT License**: [scrollmapper/bible_databases](https://github.com/scrollmapper/bible_databases) に由来するデータベース構造・ソースファイル
