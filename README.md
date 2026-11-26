@@ -1,31 +1,37 @@
 # BibleDictionary
 ![test](https://github.com/u7610366/robosys2026/actions/workflows/test.yml/badge.svg)
 
-キリスト教プロテスタント正典の旧約及び新約聖書全66巻を検索するプログラム
+聖書検索プログラム
+
+## 機能説明
+
+- キリスト教プロテスタントの正典である旧約及び新約聖書全66巻を検索するプログラムです。
+
+- 書籍名を入力すると、本文のみを抽出して出力します。
 
 ## インストール方法
 
 インストールするフォルダのディレクトリに移動し
 
 ```bash
-git clone https://github.com/u7610366/BibleDictionary
+$ git clone https://github.com/u7610366/BibleDictionary
 ```
 
 を実行してダウンロードします。
 
 ## 使用方法
 
-書籍名をコマンドラインで入力すると、該当書籍の全文が出力されます。
+書籍名をダブルクォーテーションで囲み、コマンドラインで入力すると、該当書籍の全文が出力されます。
 
 また、書籍名のパイプ入力にも対応しています。
 
 - 例:
 ```bash
-./dictionary "III John"
+$ ./dictionary "III John"
 ```
 
 ```bash
-echo "III John" | ./dictionary
+$ echo "III John" | ./dictionary
 ```
 
 ## 収録書籍(全66巻)
